@@ -4,7 +4,7 @@
             Think of the <span class="selflink">NameOf</span> class as the 
             <span class="code"><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof" target="_blank" rel="noopener noreferrer">nameof</a></span> 
             expression on steroids.
-            </div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Definition</h2><div id="IDBSection"><strong>Namespace:</strong> <a href="N_DotNetExtras_Common.htm">DotNetExtras.Common</a><br /><strong>Assembly:</strong> DotNetExtras.Common (in DotNetExtras.Common.dll) Version: 0.0.0+15b89138acd7e675a6e2be4fea95542b69a09599<div class="codeSnippet"><div class="codeHeader"><span class="codeHeaderTitle">C#</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-cs"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="identifier">NameOf</span></code></pre></div></div><dl class="inheritanceHierarchy"><dt>Inheritance</dt><dd><a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>  <span class="icon is-small"><i class="fa fa-arrow-right"></i></span>  <span class="selflink">NameOf</span></dd></dl></div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Remarks</h2><div id="IDBCSection"><p>
+            </div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Definition</h2><div id="IDBSection"><strong>Namespace:</strong> <a href="N_DotNetExtras_Common.htm">DotNetExtras.Common</a><br /><strong>Assembly:</strong> DotNetExtras.Common (in DotNetExtras.Common.dll) Version: 0.0.0+59727da2e4df36b9024c55a1cf12d547059a2d78<div class="codeSnippet"><div class="codeHeader"><span class="codeHeaderTitle">C#</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-cs"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="identifier">NameOf</span></code></pre></div></div><dl class="inheritanceHierarchy"><dt>Inheritance</dt><dd><a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>  <span class="icon is-small"><i class="fa fa-arrow-right"></i></span>  <span class="selflink">NameOf</span></dd></dl></div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Remarks</h2><div id="IDBCSection"><p>
             When applying the <span class="selflink">NameOf</span> methods to types, use it with the <span class="code">nameof</span> expression.
             </p><p>
             Question marks will be removed from names referencing nullable types.
@@ -15,10 +15,10 @@ Console.WriteLine(NameOf.Full(nameof(Class.Parent.ChildProp)));
 Console.WriteLine(NameOf.Full(nameof(Class.Parent.ChildProp), true));
 
 // PRINT: object.Parent.ChildProp
-Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp));
+Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp));
 
 // PRINT: object.parent.childProp
-Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp, true));
+Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp, true));
 
 // PRINT: Parent.ChildProp
 Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp)));
@@ -27,10 +27,10 @@ Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp)));
 Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp), true));
 
 // PRINT: Parent.ChildProp
-Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp));
+Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp));
 
 // PRINT: parent.childProp
-Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp, true));
+Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp, true));
 
 // PRINT: ChildProp
 Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp)));
@@ -39,10 +39,10 @@ Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp)));
 Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp), true));
 
 // PRINT: ChildProp
-Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp));
+Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp));
 
 // PRINT: childProp
-Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp, true));</code></pre></div></div></div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Methods</h2><div id="IDAEASection"><table id="MethodList" class="table is-hoverable"><tr><td><a href="M_DotNetExtras_Common_NameOf_Full.htm">Full</a></td><td>
+Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp, true));</code></pre></div></div></div><h2 class="quickLinkHeader"><span class="icon toggleSection" tabindex="0"><i class="fa fa-angle-down"></i></span>Methods</h2><div id="IDAEASection"><table id="MethodList" class="table is-hoverable"><tr><td><a href="M_DotNetExtras_Common_NameOf_Full.htm">Full</a></td><td>
             Returns full name of the object, class, type, or property.
             </td></tr><tr><td><a href="M_DotNetExtras_Common_NameOf_Keep.htm">Keep</a></td><td>
             Returns a shortened name of the object, class, type, or property

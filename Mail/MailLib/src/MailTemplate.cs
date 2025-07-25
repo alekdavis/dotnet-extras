@@ -8,27 +8,26 @@ using System.Text.RegularExpressions;
 namespace DotNetExtras.Mail;
 
 /// <summary>
-/// Creates email message body and subject by merging a translated Razor template file with the provided data structure.
+/// Creates an email message body and subject by merging a localized 
+/// <see href="https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor">Razor template</see>
+/// file with the provided data structure.
 /// </summary>
 /// <remarks>
 /// <para>
 /// The merge process makes these assumptions and conforms to the following conventions:
-/// 
-/// - A template file is named as follows: TEMPLATEID_LANGUAGE-CODE.EXTENSION.
-/// - The template file is located in the specified folder.
-/// - The template file is in HTML format.
-/// - The template file contains a title element that will be used as the email subject.
-/// - The template file contains a body element that will be used as the email body.
-/// - The template file can contain Razor syntax for data binding.
-/// - The template file can contain special characters that need to be escaped.
-/// - The template file can contain special elements that need to be handled.
-/// - The template file can contain localized versions mapped to different languages.
-/// - The template file can contain a default language version.
-/// - The specified language code must match the language code suffix in the file name.
-/// - The specified language code can be a fallback language if the preferred language is not found.
-/// - If a more specific language code (e.g. 'es-mx') is not implemented for the specified template, a more generic language code (e.g. 'es') will be tried.
-/// - A language map can be used to map non-standard language codes to standard language codes.
-/// - The constructor parameters can be used to set the default language, default template file extension, language separator, sub-language separator, and language map.
+/// <list type="bullet">
+/// <item>A template file is named as <c>templateId_languageCode.extension</c>, such as <c>Welcome_es-mx.html</c>.</item>
+/// <item>The template file is formatted as a valid HTML document.</item>
+/// <item>The template file contains a <c>&lt;title&gt;</c> element the contents of which will be used as the email subject.</item>
+/// <item>The template file contains a <c>&lt;body&gt;</c> element that will be used as the email body.</item>
+/// <item>The template file can contain Razor syntax for data binding.</item>
+/// <item>Some special characters in the template file may need to be escaped.</item>
+/// <item>The specified language code must match the language code suffix in the file name.</item>
+/// <item>The specified language code can be a fallback language if the preferred language is not found.</item>
+/// <item>If a more specific language code (e.g. <c>es-mx</c>) is not implemented for the specified template, a more generic language code (e.g.<c>es</c>) will be tried.</item>
+/// <item>A language map can be used to map non-standard language codes to standard language codes.</item>
+/// <item> The constructor parameters can be used to set the default language, default template file extension, language separator, sub-language separator, and language map.</item>
+/// </list>
 /// </para>
 /// </remarks>
 /// <example>
@@ -138,7 +137,7 @@ public partial class MailTemplate: IMailMessage
     public string? Subject { get; private set; } = null;
 
     /// <summary>
-    /// Returns HTML template language in a pretty format, such as "xx-YY-ZZ".
+    /// Returns HTML template language in a pretty format, such as <c>xx-YY-ZZ</c>.
     /// </summary>
     /// <remarks>
     /// This property is only needed for returning the applied language code.
@@ -191,10 +190,10 @@ public partial class MailTemplate: IMailMessage
     /// Non-standard mapping of language code fallbacks.
     /// </param>
     /// <param name="languageSeparator">
-    /// Separates template ID from language code in template file name, such as "NewAccountActivation-en".
+    /// Separates template ID from language code in template file name, such as <c>NewAccountActivation-en</c>.
     /// </param>
     /// <param name="subLanguageSeparator">
-    /// Separates language code parts, such as in "en_US".
+    /// Separates language code parts, such as in <c>en_US</c>.
     /// </param>
     public MailTemplate
     (
@@ -541,9 +540,9 @@ public partial class MailTemplate: IMailMessage
     /// List of possible alternatives.
     /// </returns>
     /// <example>
-    /// en-AU: en-AU, en, en-US.
-    /// en-EN: en-EN, en, en-US.
-    /// es-MX: ex-MX, es, en-US.
+    /// <c>en-AU</c>: <c>en-AU</c>, <c>en</c>, <c>en-US</c>.
+    /// <c>en-EN</c>: <c>en-EN</c>, <c>en</c>, <c>en-US</c>.
+    /// <c>es-MX</c>: <c>ex-MX</c>, <c>es</c>, <c>en-US</c>.
     /// </example>
     private List<string> GetCompatibleLanguages
     (
@@ -675,7 +674,8 @@ public partial class MailTemplate: IMailMessage
     /// The language code.
     /// </param>
     /// <returns>
-    /// The file name in the format: TEMPLATEID-LANGUAGE_CODE
+    /// The file name in the format <c>templateId_languageCode</c>,
+    /// such as <c>EmailVerification_en-us</c>.
     /// </returns>
     private string FormatFileName
     (

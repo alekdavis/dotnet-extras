@@ -1,5 +1,6 @@
 ﻿using DotNetExtras.Common;
-using DotNetExtras.Common.Specialized;
+using DotNetExtras.Common.Extensions;
+using DotNetExtras.Common.Extensions.Specialized;
 using DotNetExtras.Common.Json;
 using Xunit;
 using Xunit.Sdk;

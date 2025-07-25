@@ -48,7 +48,7 @@
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <HelpTitle>DotNetExtras API Documentation</HelpTitle>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
-    <NamingMethod>Guid</NamingMethod>
+    <NamingMethod>MemberName</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>API documentation</RootNamespaceTitle>
@@ -70,7 +70,11 @@
 <NamespaceSummaryItem name="DotNetExtras.Security.Json" isDocumented="True">Provides classes that enhance JSON capability with security in mind (such as secure serialization of sensitive property values).</NamespaceSummaryItem>
 <NamespaceSummaryItem name="DotNetExtras.Testing (Group)" isGroup="True" isDocumented="True">Contains classes and namespaces that simplify unit testing using the XUnit framework.</NamespaceSummaryItem>
 <NamespaceSummaryItem name="DotNetExtras.Testing" isDocumented="True">Providess classes and that simplify unit testing using the XUnit framework.</NamespaceSummaryItem>
-<NamespaceSummaryItem name="DotNetExtras.Testing.Assertions" isDocumented="True">Provides wrapper classes for XUnit and custome assertions used for unit testing.</NamespaceSummaryItem></NamespaceSummaries>
+<NamespaceSummaryItem name="DotNetExtras.Testing.Assertions" isDocumented="True">Provides wrapper classes for XUnit and custom assertions used for unit testing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="DotNetExtras.Common.Exceptions" isDocumented="True">Defines custome exception classes.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="DotNetExtras.Common.Extensions (Group)" isGroup="True" isDocumented="True">Contains classes and specialized namespaces implementing extension methods.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="DotNetExtras.Common.Extensions" isDocumented="True">Implements most common extension methods.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="DotNetExtras.Common.Extensions.Specialized" isDocumented="True">Implements less common extension methods.</NamespaceSummaryItem></NamespaceSummaries>
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <BinaryTOC>True</BinaryTOC>
     <IncludeFavorites>False</IncludeFavorites>

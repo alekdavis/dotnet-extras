@@ -1,4 +1,5 @@
 ﻿using DotNetExtras.Common;
+using DotNetExtras.Common.Extensions;
 
 namespace CommonLibTests;
 public partial class ExtensionsTests

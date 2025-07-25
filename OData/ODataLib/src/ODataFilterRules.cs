@@ -1,4 +1,4 @@
-﻿using DotNetExtras.Common.Specialized;
+﻿using DotNetExtras.Common.Extensions.Specialized;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 

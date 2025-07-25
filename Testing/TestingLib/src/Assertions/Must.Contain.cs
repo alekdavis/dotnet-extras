@@ -1,4 +1,5 @@
 using DotNetExtras.Common;
+using DotNetExtras.Common.Extensions;
 using System.Collections;
 using Xunit;
 

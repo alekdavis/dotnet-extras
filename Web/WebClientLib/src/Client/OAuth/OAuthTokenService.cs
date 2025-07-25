@@ -1,6 +1,7 @@
 ﻿// Ignore Spelling: Auth
 
 using DotNetExtras.Common;
+using DotNetExtras.Common.Extensions;
 using DotNetExtras.Common.Json;
 using Microsoft.Extensions.Logging;
 using System.Net;

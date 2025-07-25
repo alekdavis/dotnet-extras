@@ -1,6 +1,6 @@
 ﻿using CommonLibTests.Models;
 using DotNetExtras.Common;
-using DotNetExtras.Common.Specialized;
+using DotNetExtras.Common.Extensions.Specialized;
 
 namespace CommonLibTests;
 public partial class ExtensionsTests

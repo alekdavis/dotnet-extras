@@ -1,5 +1,5 @@
 ﻿// Ignore Spelling: Auth json timestamp
-using DotNetExtras.Common.Specialized;
+using DotNetExtras.Common.Extensions.Specialized;
 using DotNetExtras.Common.Json;
 using System.Text.Json.Serialization;
 

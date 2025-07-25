@@ -1,6 +1,5 @@
 ﻿// Ignore Spelling: Auth
-
-using DotNetExtras.Common;
+using DotNetExtras.Common.Exceptions;
 
 namespace DotNetExtras.Web.Client;
 

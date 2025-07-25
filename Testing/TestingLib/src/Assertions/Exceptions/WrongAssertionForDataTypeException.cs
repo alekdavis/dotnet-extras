@@ -1,4 +1,5 @@
-﻿using DotNetExtras.Common;
+﻿using DotNetExtras.Common.Extensions;
+using DotNetExtras.Common.Extensions.Specialized;
 using System.Runtime.CompilerServices;
 
 namespace DotNetExtras.Testing.Assertions;

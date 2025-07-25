@@ -1,5 +1,6 @@
 using CommonLibTests.Models;
 using DotNetExtras.Common;
+using DotNetExtras.Common.Extensions;
 
 namespace CommonLibTests;
 

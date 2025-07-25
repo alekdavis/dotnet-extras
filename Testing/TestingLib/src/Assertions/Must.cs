@@ -43,9 +43,9 @@ public partial class Must
         [CallerMemberName] string caller = ""
     )
     {
-        if (caller != nameof(Extensions.Must))
+        if (caller != nameof(AssertionExtensions.Must))
         {
-            throw new InvalidOperationException($"The '{nameof(Must)}' constructor cannot be called explicitly. Use the '{NameOf.Full(nameof(Extensions.Must))}' extension method instead.");
+            throw new InvalidOperationException($"The '{nameof(Must)}' constructor cannot be called explicitly. Use the '{NameOf.Full(nameof(AssertionExtensions.Must))}' extension method instead.");
         }
 
         _name = name;

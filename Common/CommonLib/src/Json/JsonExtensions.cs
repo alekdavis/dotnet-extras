@@ -5,7 +5,7 @@ namespace DotNetExtras.Common.Json;
 /// <summary>
 /// Implements extension methods for data conversions to and from JSON strings.
 /// </summary>
-public static partial class Extensions
+public static partial class JsonExtensions
 {
     /// <summary>
     /// Converts an object to a JSON string.

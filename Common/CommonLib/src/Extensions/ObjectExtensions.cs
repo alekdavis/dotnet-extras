@@ -249,6 +249,15 @@ public static partial class ObjectExtensions
                 : !value.GetType().IsValueType && value.IsEmpty()));
     }
 
+    /// <summary>
+    /// Converts slashes to periods in the compound property names.
+    /// </summary>
+    /// <param name="name">
+    /// Compound property name.
+    /// </param>
+    /// <returns>
+    /// Normalized property name with slashes replaced by periods.
+    /// </returns>
     private static string NormalizePropertyName
     (
         string name

@@ -4,7 +4,7 @@ namespace DotNetExtras.Testing.Assertions;
 /// <summary>
 /// Provides extension methods for assertions.
 /// </summary>
-public static class Extensions
+public static class AssertionExtensions
 {
     /// <summary>
     /// Creates a new <see cref="Must"/> instance for the specified value.

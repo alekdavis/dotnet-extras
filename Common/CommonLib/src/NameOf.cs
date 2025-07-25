@@ -28,10 +28,10 @@ namespace DotNetExtras.Common;
 /// Console.WriteLine(NameOf.Full(nameof(Class.Parent.ChildProp), true));
 /// 
 /// // PRINT: object.Parent.ChildProp
-/// Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp));
+/// Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp));
 /// 
 /// // PRINT: object.parent.childProp
-/// Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp, true));
+/// Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp, true));
 /// 
 /// // PRINT: Parent.ChildProp
 /// Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp)));
@@ -40,10 +40,10 @@ namespace DotNetExtras.Common;
 /// Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp), true));
 /// 
 /// // PRINT: Parent.ChildProp
-/// Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp));
+/// Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp));
 /// 
 /// // PRINT: parent.childProp
-/// Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp, true));
+/// Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp, true));
 /// 
 /// // PRINT: ChildProp
 /// Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp)));
@@ -52,10 +52,10 @@ namespace DotNetExtras.Common;
 /// Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp), true));
 /// 
 /// // PRINT: ChildProp
-/// Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp));
+/// Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp));
 /// 
 /// // PRINT: childProp
-/// Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp, true));
+/// Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp, true));
 /// </code>
 /// </example>
 public static class NameOf
@@ -85,10 +85,10 @@ public static class NameOf
     /// Console.WriteLine(NameOf.Full(nameof(Class.Parent.ChildProp), true));
     /// 
     /// // PRINT: object.Parent.ChildProp
-    /// Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp));
+    /// Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp));
     /// 
     /// // PRINT: object.parent.childProp
-    /// Console.WriteLine(NameOf.Full(object?.Parent?.ChildProp, true));
+    /// Console.WriteLine(NameOf.Full(myObject?.Parent?.ChildProp, true));
     /// </code>
     /// </example>
     public static string Full
@@ -141,10 +141,10 @@ public static class NameOf
     /// Console.WriteLine(NameOf.Long(nameof(Class.Parent.ChildProp), true));
     /// 
     /// // PRINT: Parent.ChildProp
-    /// Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp));
+    /// Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp));
     /// 
     /// // PRINT: parent.childProp
-    /// Console.WriteLine(NameOf.Long(object?.Parent?.ChildProp, true));
+    /// Console.WriteLine(NameOf.Long(myObject?.Parent?.ChildProp, true));
     /// </code>
     /// </example>
     public static string Long
@@ -179,10 +179,10 @@ public static class NameOf
     /// Console.WriteLine(NameOf.Short(nameof(Class.Parent.ChildProp), true));
     /// 
     /// // PRINT: ChildProp
-    /// Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp));
+    /// Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp));
     /// 
     /// // PRINT: childProp
-    /// Console.WriteLine(NameOf.Short(object?.Parent?.ChildProp, true));
+    /// Console.WriteLine(NameOf.Short(myObject?.Parent?.ChildProp, true));
     /// </code>
     /// </example>
     public static string Short

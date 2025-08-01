@@ -24,7 +24,7 @@ namespace DotNetExtras.Mail;
 /// <item>Template files can contain Razor syntax for data binding.</item>
 /// <item>The specified language code must match the language code suffix in the file name.</item>
 /// <item>If no template file with the language code suffix matching the specified language code is found for a particular email template ID, then an alternative language code will be used.</item>
-/// <item>If a more specific language code (e.g. <c>es-mx</c>) is not implemented for the specified template, a template file with more generic language code (e.g.<c>es</c>) will be tried.</item>
+/// <item>If a more specific language code (e.g. <c>es-mx</c>) is not implemented for the specified template, a template file with a more generic language code (e.g. <c>es</c>) will be tried.</item>
 /// <item>A language map can be defined for more precise language code mapping.</item>
 /// </list>
 /// </para>
@@ -61,13 +61,16 @@ namespace DotNetExtras.Mail;
 ///     Year = 2025
 /// };
 /// 
-/// MailTemplate message = template.Merge("Zodiac", "Samples/Zodiac", "en-US", data, ".html");
+/// template.Load("Zodiac", "Samples/Zodiac", "en-US", data, ".html");
 /// 
 /// // Subject will hold the merged value of the title element.
-/// string subject = message.Subject;
+/// string subject = template.Subject;
 /// 
 /// // Body will hold the merged value of the body element.
-/// string body = message.Body;
+/// string body = template.Body;
+/// 
+/// // Language will hold the language code actually used by the template.
+/// string language = template.Language;
 /// </code>
 /// </example>
 public partial class MailTemplate
@@ -123,32 +126,35 @@ public partial class MailTemplate
     /// <summary>
     /// Returns the original text of the localized HTML email template.
     /// </summary>
-    public string? Template { get; private set; } = null;
+    public virtual string? Template { get; private set; } = null;
 
     /// <summary>
-    /// Returns the text of the email HTML message body (after the data transformation).
+    /// Returns the text of the email HTML message body 
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
     /// </summary>
     /// <remarks>
     /// This will be the message body sent to the email recipient.
     /// </remarks>
-    public string? Body { get; private set; } = null;
+    public virtual string? Body { get; private set; } = null;
 
     /// <summary>
-    /// Returns the email HTML message subject from the title element (after the data transformation).
+    /// Returns the email HTML message subject from the title element 
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
     /// </summary>
     /// <remarks>
     /// This will be the message subject sent to the email recipient.
     /// </remarks>
-    public string? Subject { get; private set; } = null;
+    public virtual string? Subject { get; private set; } = null;
 
     /// <summary>
     /// Returns the real template language used for the specified 
-    /// template ID and language in a pretty format, such as <c>xx-YY-ZZ</c>.
+    /// template ID and language in a pretty format, such as <c>xx-YY-ZZ</c>
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
     /// </summary>
     /// <remarks>
     /// This property can be used to determine which language was actually used.
     /// </remarks>
-    public string? Language
+    public virtual string? Language
     {
         get
         {
@@ -174,9 +180,10 @@ public partial class MailTemplate
     }
 
     /// <summary>
-    /// Indicates whether the pre-compiled template was loaded from the Razor engine's memory cache.
+    /// Indicates whether the pre-compiled template was loaded from the Razor engine's memory cache
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
     /// </summary>
-    public bool Cached
+    public virtual bool Cached
     {
         get; private set;
     }
@@ -246,12 +253,56 @@ public partial class MailTemplate
     /// <returns>
     /// A localized mail message template merged with the data in the specified or a fallback language.
     /// </returns>
-    public void Merge
+    /// <example>
+    /// Zodiac_en-us.html file:
+    /// <code language="html">
+    /// &lt;!DOCTYPE html&gt;
+    /// &lt;html lang="en"&gt;
+    /// &lt;head&gt;
+    /// &lt;title&gt;Welcome @Raw(Model.Zodiac)!&lt;/title&gt;
+    /// &lt;meta charset="utf-8"&gt;
+    /// &lt;/head&gt;
+    /// &lt;body&gt;
+    /// &lt;p&gt;Hello @Raw(Model.Name),&lt;/p&gt;
+    /// &lt;p&gt;
+    /// Your Zodiac sign is: @Raw(Model.Zodiac).
+    /// &lt;/p&gt;
+    /// &lt;p&gt;
+    /// &amp;copy; @Model.Year | &lt;a href="#"&gt;Terms&lt;/a&gt; | &lt;a href="#"&gt;Privacy&lt;/a&gt; | &lt;a href="#"&gt;Unsubscribe&lt;/a&gt;
+    /// &lt;/p&gt;
+    /// &lt;/body&gt;
+    /// &lt;/html&gt;
+    /// </code>
+    /// 
+    /// C# code:
+    /// <code>
+    /// MailTemplate template = new();
+    ///
+    /// Data data = new()
+    /// {
+    ///     Zodiac = "Leo",
+    ///     Name = "John",
+    ///     Year = 2025
+    /// };
+    /// 
+    /// template.Load("Zodiac", "Samples/Zodiac", "en-US", data, ".html");
+    /// 
+    /// // Subject will hold the merged value of the title element.
+    /// string subject = template.Subject;
+    /// 
+    /// // Body will hold the merged value of the body element.
+    /// string body = template.Body;
+    /// 
+    /// // Language will hold the language code actually used by the template.
+    /// string language = template.Language;
+    /// </code>
+    /// </example>
+    public virtual void Load
     (
         string templateId,
         string templateFolderPath,
         string language,
-        object data,
+        object? data,
         string? templateFileExtension = null
     )
     {
@@ -334,13 +385,13 @@ public partial class MailTemplate
         if (_path == null)
         {
             throw new Exception(
-                $"Cannot find HTML mail template '{templateId}' for language '{language}'.");
+                $"Cannot find an HTML mail template '{templateId}' for the '{language}' language code.");
         }
 
         if (_key == null)
         {
             throw new Exception(
-                $"Cannot determine key to identify mail template '{templateId}' for language '{language}'.");
+                $"Cannot determine the key to identify the mail template '{templateId}' for the '{language}' language code.");
         }
 
         // Try getting template from cache.
@@ -371,14 +422,13 @@ public partial class MailTemplate
         try
         {
             // If we have notification data, merge them with the template.
-            if (data != null)
-            {
-                Body = Merge(_key, Template, data);
-            }
+            Body = data == null 
+                ? Template 
+                : Merge(_key, Template, data);
         }
         catch (Exception ex)
         {
-            throw new Exception($"Cannot merge mail template with supplied data '{data.ToJson()}'.", ex);
+            throw new Exception($"Cannot merge mail template with the supplied data '{data.ToJson()}'.", ex);
         }
 
         // Retrieve email notification subject from the title tag.

@@ -65,7 +65,7 @@ public class MailTemplateTests
             Year = year
         };
         
-        template.Merge(_templateId, _templateFolder, language, data, ".html");
+        template.Load(_templateId, _templateFolder, language, data, ".html");
 
         Assert.Equal(actualLanguage, template.Language, true);
         Assert.Contains(data.Zodiac, template.Subject);
@@ -74,7 +74,7 @@ public class MailTemplateTests
 
         // Because tests execute in random order, we can't see if the template is cached,
         // but if we do another merge, it should definitely be cached.
-        template.Merge(_templateId, _templateFolder, language, data, ".html");
+        template.Load(_templateId, _templateFolder, language, data, ".html");
         Assert.True(template.Cached);
     }
 }

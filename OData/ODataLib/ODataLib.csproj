@@ -6,17 +6,19 @@
     <Nullable>enable</Nullable>
     <AssemblyName>DotNetExtras.OData</AssemblyName>
     <RootNamespace>DotNetExtras.OData</RootNamespace>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Title>$(AssemblyName)</Title>
     <Version>0.0.0</Version>
+    <Title>$(AssemblyName)</Title>
     <Authors>Alek Davis</Authors>
-    <Description>.NET Core library implementing OData filter handling and validation functions.</Description>
+    <Description>A .NET Core library implementing OData filter parsing and validation functions.</Description>
     <Copyright>© 2025 Alek Davis</Copyright>
-    <PackageProjectUrl>https://github.com/alekdavis/DotNetExtras/OData</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/alekdavis/DotNetExtras.git</RepositoryUrl>
-    <PackageTags>.net;utilities;helpers;library;classes;tools;toolbox;odata;</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageProjectUrl>https://alekdavis.github.io/dotnet-extras</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/alekdavis/dotnet-extras</RepositoryUrl>
+    <PackageTags>.net;utilities;helpers;library;classes;tools;toolbox;odata;</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSourceRevisionInInformationalVersion>False</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="README.md">
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

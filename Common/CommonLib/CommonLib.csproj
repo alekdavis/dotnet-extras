@@ -6,23 +6,23 @@
     <Nullable>enable</Nullable>
     <AssemblyName>DotNetExtras.Common</AssemblyName>
     <RootNamespace>DotNetExtras.Common</RootNamespace>
+    <Version>0.0.0</Version>
+    <Title>$(AssemblyName)</Title>
+    <Authors>Alek Davis</Authors>
+    <Description>A .NET Core library implementing most frequently used general-purpose operations.</Description>
+    <Copyright>© 2025 Alek Davis</Copyright>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName)</PackageId>
-    <Title>$(AssemblyName)</Title>
-    <Version>0.0.0</Version>
-    <Authors>Alek Davis</Authors>
-    <Description>Common general-purpose .NET Core classes.</Description>
-    <Copyright>© 2025 Alek Davis</Copyright>
-    <PackageProjectUrl>https://github.com/alekdavis/DotNetExtras/Common</PackageProjectUrl>
+    <PackageProjectUrl>https://alekdavis.github.io/dotnet-extras</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/alekdavis/DotNetExtras.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/alekdavis/dotnet-extras</RepositoryUrl>
     <PackageTags>.net;utilities;helpers;library;classes;tools;toolbox</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSourceRevisionInInformationalVersion>False</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="README.md">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

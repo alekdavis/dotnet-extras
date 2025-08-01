@@ -6,21 +6,23 @@
     <Nullable>enable</Nullable>
     <AssemblyName>DotNetExtras.Testing</AssemblyName>
     <RootNamespace>DotNetExtras.Testing</RootNamespace>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>$(AssemblyName)</Title>
     <Version>0.0.0</Version>
+    <Title>$(AssemblyName)</Title>
     <Authors>Alek Davis</Authors>
-    <Description>.NET Core library implementing unit testing helper functions.</Description>
+    <Description>A .NET Core library implementing helper functions for unit testing and validation based on xUnit.</Description>
     <Copyright>© 2025 Alek Davis</Copyright>
-    <PackageProjectUrl>https://github.com/alekdavis/DotNetExtras/Testing</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageProjectUrl>https://alekdavis.github.io/dotnet-extras</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/alekdavis/DotNetExtras.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/alekdavis/dotnet-extras</RepositoryUrl>
     <PackageTags>.net;utilities;helpers;library;classes;unit tests;testing;xunit;</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSourceRevisionInInformationalVersion>False</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

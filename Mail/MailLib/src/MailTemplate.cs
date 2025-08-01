@@ -61,7 +61,7 @@ namespace DotNetExtras.Mail;
 ///     Year = 2025
 /// };
 /// 
-/// // Load the en-US version of the Zodiac template from the Samples/Zodiac folder and merge it with data
+/// // Load the en-US version of the Zodiac template from the Samples/Zodiac folder and merge it with data.
 /// template.Load("Samples/Zodiac", "Zodiac", "en-US", ".html", data);
 /// 
 /// // Subject will hold the merged value of the title element.
@@ -293,7 +293,7 @@ public partial class MailTemplate
     ///     Year = 2025
     /// };
     /// 
-    /// // Load the en-US version of the Zodiac template from the Samples/Zodiac folder and merge it with data
+    /// // Load the en-US version of the Zodiac template from the Samples/Zodiac folder and merge it with data.
     /// template.Load("Samples/Zodiac", "Zodiac", "en-US", ".html", data);
     /// 
     /// // Subject will hold the merged value of the title element.

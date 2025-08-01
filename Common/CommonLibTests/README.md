@@ -1,1 +1,2 @@
 ﻿# DotNetExtras.Common Library Unit Tests
+This folder contains the source code for unit tests of the `DotNetExtras.Common` library. It includes tests for various components of the library to ensure their functionality and correctness. Unit tests are based on the [`xUnit`](https://xunit.net) testing framework and utilize [`FakeItEasy`](https://fakeiteasy.github.io) for mocking.

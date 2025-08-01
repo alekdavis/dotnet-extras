@@ -14,19 +14,12 @@
 [Serializable]
 public class SafeException: Exception
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SafeException"/> class.
-    /// </summary>
+    /// <inheritdoc cref="SafeException(string, Exception)"/>
     public SafeException(): base() 
     {
     }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SafeException"/> class.
-    /// </summary>
-    /// <param name="message">
-    /// Error message.
-    /// </param>
+    /// <inheritdoc cref="SafeException(string, Exception)"/>
     public SafeException
     (
         string message

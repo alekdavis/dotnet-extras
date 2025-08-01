@@ -1,7 +1,10 @@
 ﻿namespace DotNetExtras.Common.Extensions;
 /// <summary>
-/// Implements advanced extension methods for the <see cref="string"/> types.
+/// Implements the most frequently used extension methods,
+/// such as escaping special characters, making sure the sting ends ina punctuation character, etc.,
+/// for the <see cref="string"/> types.
 /// </summary>
+/// <seealso cref="Specialized"/>
 public static partial class StringExtensions
 {
     /// <summary>

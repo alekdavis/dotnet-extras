@@ -5,18 +5,18 @@ using System.Text.Json;
 namespace DotNetExtras.Common;
 
 /// <summary>
-/// Use the static <see cref="NameOf"/> methods to generate fully qualified or partial names of
-/// variables, types, or members (you can keep the original case or use the camelCase notation).
 /// Think of the <see cref="NameOf"/> class as the 
 /// <c><see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof">nameof</see></c> 
-/// expression on steroids.
+/// expression on steroids that can generate fully qualified or partial names of
+/// variables, types, or members in the original case or <c>camelCase</c> notation.
 /// </summary>
 /// <remarks>
 /// <para>
-/// When applying the <see cref="NameOf"/> methods to types, use it with the <c>nameof</c> expression.
+/// When applying the <see cref="NameOf"/> methods to types (vs. object properties),
+/// use it with the <c>nameof</c> expression.
 /// </para>
 /// <para>
-/// Question marks will be removed from names referencing nullable types.
+/// Special characters (<c>?</c>, <c>!</c>, <c>@</c>) will be removed from the object property names.
 /// </para>
 /// </remarks>
 /// <example>

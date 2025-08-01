@@ -21,7 +21,9 @@ public static partial class EnumExtensions
     /// Attribute value.
     /// </returns>
     /// <example>
-    /// 
+    /// <code>
+    /// DescriptionAttribute? attribute = enumValue.GetAttribute&lt;DescriptionAttribute&gt;();
+    /// </code>
     /// </example>
     public static T? GetAttribute<T>
     (

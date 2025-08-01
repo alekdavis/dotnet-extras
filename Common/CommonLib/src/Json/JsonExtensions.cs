@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DotNetExtras.Common.Json;
 /// <summary>
-/// Implements extension methods for data conversions to and from JSON strings.
+/// Implements extension methods for data conversion to and from JSON strings.
 /// </summary>
 public static partial class JsonExtensions
 {
@@ -23,10 +23,10 @@ public static partial class JsonExtensions
     /// <code>
     /// Sample sample = new Sample(){ Name = "John", Age = 30 };
     /// 
-    /// // Prints unformatted JSON version of the object
+    /// // Prints unformatted JSON version of the object.
     /// Console.WriteLine(sample.ToJson());
     /// 
-    /// // Prints formatted JSON version of the object
+    /// // Prints formatted JSON version of the object.
     /// Console.WriteLine(sample.ToJson(true));
     /// </code>
     /// </example>
@@ -63,6 +63,10 @@ public static partial class JsonExtensions
     /// <returns>
     /// Converted value or default if conversion failed.
     /// </returns>
+    /// <remarks>
+    /// Enumerated properties in the JSON string are assumed to hold the 
+    /// field names, i.e. string, not integer, values.
+    /// </remarks>
     /// <example>
     /// <code>
     /// User? user = "{\"id\":123,\"name\":\"John\"}".FromJson&lt;User&gt;();

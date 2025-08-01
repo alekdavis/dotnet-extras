@@ -3,9 +3,10 @@ using System.Reflection;
 
 namespace DotNetExtras.Common.Extensions;
 /// <summary>
-/// Implements common extension methods for all (any <see cref="object"/>) types,
+/// Implements the most frequently used extension methods,
 /// such as deep cloning, checking object equivalency, 
-/// getting and setting a nested property value by a compound name.
+/// getting and setting a nested property value by a compound name, and more,
+/// for all (any <see cref="object"/>) types.
 /// </summary>
 /// <seealso cref="Specialized"/>
 public static partial class ObjectExtensions

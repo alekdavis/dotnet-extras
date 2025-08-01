@@ -4,9 +4,9 @@
 /// Implements common regular expressions.
 /// </summary>
 /// <remarks>
-/// This class is not declared as static because a non-static class 
-/// can be extended, so you can access both these regular expressions
-/// and your custom regular expressions from a derived class.
+/// This class is not declared as static because a static class cannot be extended. 
+/// If you extend this class, you can access both these regular expressions
+/// and your custom regular expressions from your derived class.
 /// </remarks>
 public class RegexString
 {
@@ -24,7 +24,6 @@ public class RegexString
     /// </para>
     /// </remarks>
     public static readonly string Guid =
-        //"^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$";
         "^[({]?[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}[})]?$";
 
     /// <summary>
@@ -34,25 +33,30 @@ public class RegexString
     /// <remarks>
     /// <para>
     /// Adapted from
-    /// <see href="https://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp"/>.
-    /// In the StackOverflow example, the \A, \Z modifiers mean the beginning and end of the string anchors
-    /// (see <see href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions"/>).
-    /// I changed it to use the standard ^ and $ anchors.
+    /// <see href="https://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp"/> 
+    /// except that instead of using the <c>\A</c> and <c>\Z</c> modifiers
+    /// identifying the beginning and end of the string anchors
+    /// it uses the standard regular expression <c>^</c >and <c>$</c> anchors
+    /// (<see href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions"/>).
     /// </para>
     /// <para>
     /// Do not allow asterisk because it may interfere with some Azure queries.
     /// </para>
     /// <para>
-    /// Max length is set to 64 chars due to Azure limitations (how it handles mailNickname and UPN).
+    /// Max length is set to 64 chars due to Azure limitations 
+    /// (how it handles the <c>mailNickname</c> and <c>userPrincipalAttribute</c>).
     /// </para>
     /// </remarks>
     public static readonly string EmailAddress =
         @"(?=^.{5,64}$)^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
 
     /// <summary>
-    /// The phone number format adopted from:
-    /// https://stackoverflow.com/a/60490067/52545
+    /// The phone number format: ^(\+|00)[1-9][0-9 \-\(\)\.]{7,32}$
     /// </summary>
+    /// <remarks>
+    /// Adapted from
+    /// <see href="https://stackoverflow.com/a/60490067/52545"/>.
+    /// </remarks>
     public static readonly string PhoneNumber =
         @"^(\+|00)[1-9][0-9 \-\(\)\.]{7,32}$";
 }

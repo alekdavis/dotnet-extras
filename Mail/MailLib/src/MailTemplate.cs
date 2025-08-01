@@ -8,25 +8,24 @@ using System.Text.RegularExpressions;
 namespace DotNetExtras.Mail;
 
 /// <summary>
-/// Creates an email message body and subject by merging a localized 
+/// Generates an email message for the specific (or matching) language from a localized 
 /// <see href="https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor">Razor template</see>
-/// file with the provided data structure.
+/// file and the provided data object.
 /// </summary>
 /// <remarks>
 /// <para>
 /// The merge process makes these assumptions and conforms to the following conventions:
 /// <list type="bullet">
-/// <item>A template file is named as <c>templateId_languageCode.extension</c>, such as <c>Welcome_es-mx.html</c>.</item>
-/// <item>The template file is formatted as a valid HTML document.</item>
-/// <item>The template file contains a <c>&lt;title&gt;</c> element the contents of which will be used as the email subject.</item>
-/// <item>The template file contains a <c>&lt;body&gt;</c> element that will be used as the email body.</item>
-/// <item>The template file can contain Razor syntax for data binding.</item>
-/// <item>Some special characters in the template file may need to be escaped.</item>
+/// <item>Every email template is identified by a string ID, such as <c>EmailVerification</c>, <c>WelcomeMessage</c>, etc.</item>
+/// <item>Localized template files are named as <c>templateId_languageCode.extension</c>, such as <c>Welcome_es-mx.html</c> (separator characters can be customized).</item>
+/// <item>Localized template files are formatted as valid HTML documents.</item>
+/// <item>The contents of the <c>&lt;title&gt;</c> elements in the localized template files will be used as the email message subjects.</item>
+/// <item>The contents of the <c>&lt;body&gt;</c> elements in the localized template files will be used as the email message bodies.</item>
+/// <item>Template files can contain Razor syntax for data binding.</item>
 /// <item>The specified language code must match the language code suffix in the file name.</item>
-/// <item>The specified language code can be a fallback language if the preferred language is not found.</item>
-/// <item>If a more specific language code (e.g. <c>es-mx</c>) is not implemented for the specified template, a more generic language code (e.g.<c>es</c>) will be tried.</item>
-/// <item>A language map can be used to map non-standard language codes to standard language codes.</item>
-/// <item> The constructor parameters can be used to set the default language, default template file extension, language separator, sub-language separator, and language map.</item>
+/// <item>If no template file with the language code suffix matching the specified language code is found for a particular email template ID, then an alternative language code will be used.</item>
+/// <item>If a more specific language code (e.g. <c>es-mx</c>) is not implemented for the specified template, a template file with more generic language code (e.g.<c>es</c>) will be tried.</item>
+/// <item>A language map can be defined for more precise language code mapping.</item>
 /// </list>
 /// </para>
 /// </remarks>
@@ -71,7 +70,7 @@ namespace DotNetExtras.Mail;
 /// string body = message.Body;
 /// </code>
 /// </example>
-public partial class MailTemplate: IMailMessage
+public partial class MailTemplate
 {
     #region Private properties
     // Default language if localized version is not supported.
@@ -122,25 +121,32 @@ public partial class MailTemplate: IMailMessage
 
     #region Public properties
     /// <summary>
-    /// Returns the localized HTML email template.
+    /// Returns the original text of the localized HTML email template.
     /// </summary>
     public string? Template { get; private set; } = null;
 
     /// <summary>
-    /// Returns the email HTML message body (after data transformation).
+    /// Returns the text of the email HTML message body (after the data transformation).
     /// </summary>
+    /// <remarks>
+    /// This will be the message body sent to the email recipient.
+    /// </remarks>
     public string? Body { get; private set; } = null;
 
     /// <summary>
-    /// Returns the email HTML message subject from the title element (after data transformation).
+    /// Returns the email HTML message subject from the title element (after the data transformation).
     /// </summary>
+    /// <remarks>
+    /// This will be the message subject sent to the email recipient.
+    /// </remarks>
     public string? Subject { get; private set; } = null;
 
     /// <summary>
-    /// Returns HTML template language in a pretty format, such as <c>xx-YY-ZZ</c>.
+    /// Returns the real template language used for the specified 
+    /// template ID and language in a pretty format, such as <c>xx-YY-ZZ</c>.
     /// </summary>
     /// <remarks>
-    /// This property is only needed for returning the applied language code.
+    /// This property can be used to determine which language was actually used.
     /// </remarks>
     public string? Language
     {
@@ -218,29 +224,29 @@ public partial class MailTemplate: IMailMessage
 
     #region Public methods
     /// <summary>
-    /// Merges the email template with the specified data for the 
-    /// preferred language or the fallback language.
+    /// Merges a localized email template file with the specified data for the 
+    /// preferred or a fallback language.
     /// </summary>
     /// <param name="templateId">
-    /// Template identifier that will be used as a file name.
+    /// Template identifier that will be used as the beginning of the localized template file name.
     /// </param>
     /// <param name="templateFolderPath">
-    /// Template folder path (can be relative or absolute).
+    /// Path to the folder holding the template files (can be relative or absolute).
     /// </param>
     /// <param name="language">
-    /// Preferred template language code.
+    /// Preferred template file language code.
     /// </param>
     /// <param name="data">
-    /// Notification data that will be merged with template to generate message.
+    /// Notification data that will be merged with the template file text to generate the message.
     /// </param>
     /// <param name="templateFileExtension">
     /// Extension of the template file. 
-    /// If not specified, the default value set by the constructor will be used. 
+    /// If not specified, the default value set by the <see cref="MailTemplate(string?, string?, string?, string?, Dictionary{string, string}?)">constructor</see> will be used. 
     /// </param>
     /// <returns>
-    /// Template merged with data in the specified or fallback language.
+    /// A localized mail message template merged with the data in the specified or a fallback language.
     /// </returns>
-    public MailTemplate Merge
+    public void Merge
     (
         string templateId,
         string templateFolderPath,
@@ -412,8 +418,6 @@ public partial class MailTemplate: IMailMessage
                 }
             }
         }
-
-        return this;
     }
     #endregion
 

@@ -2,11 +2,20 @@
 
 namespace DotNetExtras.Common;
 /// <summary>
-/// Use the static <see cref="AssemblyInfo"/> methods and properties to
-/// access the primary application assembly and its most commonly used attributes
-/// (the primary assembly normally corresponds to the main application assembly).
+/// Returns the most frequently used attributes 
+/// (company, copyright, product, version, title) 
+/// of the running application's primary assembly.
 /// </summary>
 /// <remarks>
+/// <para>
+/// The primary assembly is probed in the following order:
+/// </para>
+/// <list type="number">
+/// <item><see cref="Assembly.GetEntryAssembly"/></item>
+/// <item><see cref="Assembly.GetCallingAssembly"/></item>
+/// <item><see cref="Assembly.GetExecutingAssembly"/></item>
+/// <item><see cref="Assembly.GetAssembly"/> implementing the <see cref="PrimaryAssembly"/> class</item>
+/// </list>
 /// <para>
 /// Adapted from 
 /// <see href="https://www.c-sharpcorner.com/UploadFile/ravesoft/access-assemblyinfo-file-and-get-product-informations"/>.
@@ -14,18 +23,20 @@ namespace DotNetExtras.Common;
 /// </remarks>
 /// <example>
 /// <code>
-/// string company   = AssemblyInfo.Company;
-/// string copyright = AssemblyInfo.Copyright;
-/// string product   = AssemblyInfo.Product;
-/// string version   = AssemblyInfo.Version;
-/// string title     = AssemblyInfo.Title;
+/// string company   = PrimaryAssembly.Company;
+/// string copyright = PrimaryAssembly.Copyright;
+/// string product   = PrimaryAssembly.Product;
+/// string version   = PrimaryAssembly.Version;
+/// string title     = PrimaryAssembly.Title;
 /// </code>
 /// </example>
-public static class AssemblyInfo
+public static class PrimaryAssembly
 {
     #region Public properties
     /// <summary>
-    /// Returns the company name.
+    /// Returns the company name defined in the
+    /// <see cref="AssemblyCompanyAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     public static string? Company
     {
@@ -37,7 +48,9 @@ public static class AssemblyInfo
     }
 
     /// <summary>
-    /// Returns the copyright message.
+    /// Returns the copyright message defined in the 
+    /// <see cref="AssemblyCopyrightAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     public static string? Copyright
     {
@@ -49,7 +62,9 @@ public static class AssemblyInfo
     }
 
     /// <summary>
-    /// Returns the assembly description.
+    /// Returns the assembly description defined in the 
+    /// <see cref="AssemblyDescriptionAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     public static string? Description
     {
@@ -61,7 +76,9 @@ public static class AssemblyInfo
     }
 
     /// <summary>
-    /// Returns the product name.
+    /// Returns the product name defined in the 
+    /// <see cref="AssemblyProductAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     public static string? Product
     {
@@ -73,7 +90,9 @@ public static class AssemblyInfo
     }
 
     /// <summary>
-    /// Returns the assembly title.
+    /// Returns the assembly title defined in the 
+    /// <see cref="AssemblyTitleAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     public static string? Title
     {
@@ -85,7 +104,9 @@ public static class AssemblyInfo
     }
 
     /// <summary>
-    /// Returns the version of the assembly file.
+    /// Returns the version of the assembly file defined in the 
+    /// <see cref="AssemblyFileVersionAttribute"/> 
+    /// of the primary assembly.
     /// </summary>
     /// <remarks>
     /// For additional information about assembly and file versions, see
@@ -101,7 +122,7 @@ public static class AssemblyInfo
     }
     #endregion
 
-    #region Public methods    
+    #region Private methods
     /// <summary>
     /// Returns the main application assembly
     /// or the assembly implementing the specified type.
@@ -118,9 +139,9 @@ public static class AssemblyInfo
     /// 1. `Assembly.GetEntryAssembly()` 
     /// 2. `Assembly.GetCallingAssembly()`
     /// 3. `Assembly.GetExecutingAssembly()`,
-    /// 4. `Assembly.GetAssembly(typeof(AssemblyInfo))`
+    /// 4. `Assembly.GetAssembly(typeof(PrimaryAssembly))`
     /// </remarks>
-    public static Assembly? GetAssembly
+    private static Assembly? GetAssembly
     (
         Type? type = null
     )
@@ -129,12 +150,10 @@ public static class AssemblyInfo
             ? ((Assembly.GetEntryAssembly()
                 ?? Assembly.GetCallingAssembly())
                 ?? Assembly.GetExecutingAssembly())
-                ?? Assembly.GetAssembly(typeof(AssemblyInfo))
+                ?? Assembly.GetAssembly(typeof(PrimaryAssembly))
             : Assembly.GetAssembly(type);
     }
-    #endregion
 
-    #region Private methods
     /// <summary>
     /// Returns the custom assembly attribute.
     /// </summary>
@@ -162,4 +181,3 @@ public static class AssemblyInfo
     }
     #endregion
 }
-

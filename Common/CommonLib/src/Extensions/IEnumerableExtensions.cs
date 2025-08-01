@@ -3,8 +3,12 @@
 namespace DotNetExtras.Common.Extensions;
 
 /// <summary>
-/// Implements extension methods for the <see cref="IEnumerable"/> types.
+/// Implements the most frequently used extension methods,
+/// such as getting the count of items in a collection and
+/// converting a collection of generic elements to a comma-separated string value,
+/// for the <see cref="IEnumerable"/> types.
 /// </summary>
+/// <seealso cref="Specialized"/>
 public static partial class IEnumerableExtensions
 {
     /// <summary>

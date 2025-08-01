@@ -4,8 +4,9 @@ using System.Text;
 
 namespace DotNetExtras.Common.Extensions;
 /// <summary>
-/// Implements common extension methods for the <see cref="Exception"/> types,
-/// such as getting messages from all inner exceptions.
+/// Implements the most frequently used extension methods,
+/// such as getting the error messages for both current and all inner exceptions,
+/// for the <see cref="Exception"/> types.
 /// </summary>
 /// <seealso cref="Specialized"/>
 public static partial class ExceptionExtensions

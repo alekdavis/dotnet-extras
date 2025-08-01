@@ -61,7 +61,7 @@ namespace DotNetExtras.Mail;
 ///     Year = 2025
 /// };
 /// 
-/// template.Load("Zodiac", "Samples/Zodiac", "en-US", data, ".html");
+/// template.Load("Samples/Zodiac", "Zodiac", "en-US", data, ".html");
 /// 
 /// // Subject will hold the merged value of the title element.
 /// string subject = template.Subject;
@@ -130,7 +130,7 @@ public partial class MailTemplate
 
     /// <summary>
     /// Returns the text of the email HTML message body 
-    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, string?, object?)"/> call).
     /// </summary>
     /// <remarks>
     /// This will be the message body sent to the email recipient.
@@ -139,7 +139,7 @@ public partial class MailTemplate
 
     /// <summary>
     /// Returns the email HTML message subject from the title element 
-    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, string?, object?)"/> call).
     /// </summary>
     /// <remarks>
     /// This will be the message subject sent to the email recipient.
@@ -149,7 +149,7 @@ public partial class MailTemplate
     /// <summary>
     /// Returns the real template language used for the specified 
     /// template ID and language in a pretty format, such as <c>xx-YY-ZZ</c>
-    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, string?, object?)"/> call).
     /// </summary>
     /// <remarks>
     /// This property can be used to determine which language was actually used.
@@ -181,7 +181,7 @@ public partial class MailTemplate
 
     /// <summary>
     /// Indicates whether the pre-compiled template was loaded from the Razor engine's memory cache
-    /// (after the data transformation performed by the <see cref="Load(string, string, string, object, string?)"/> call).
+    /// (after the data transformation performed by the <see cref="Load(string, string, string, string?, object?)"/> call).
     /// </summary>
     public virtual bool Cached
     {
@@ -231,28 +231,35 @@ public partial class MailTemplate
 
     #region Public methods
     /// <summary>
-    /// Merges a localized email template file with the specified data for the 
-    /// preferred or a fallback language.
+    /// Loads a localized email template file for the specified (or matching) language 
+    /// and merges the template text with the specified data (if the data object is specified).
     /// </summary>
-    /// <param name="templateId">
-    /// Template identifier that will be used as the beginning of the localized template file name.
-    /// </param>
-    /// <param name="templateFolderPath">
+    /// <param name="folder">
     /// Path to the folder holding the template files (can be relative or absolute).
+    /// </param>
+    /// <param name="template">
+    /// Template identifier that will be used as the beginning of the localized template file name.
     /// </param>
     /// <param name="language">
     /// Preferred template file language code.
     /// </param>
-    /// <param name="data">
-    /// Notification data that will be merged with the template file text to generate the message.
-    /// </param>
-    /// <param name="templateFileExtension">
+    /// <param name="extension">
     /// Extension of the template file. 
     /// If not specified, the default value set by the <see cref="MailTemplate(string?, string?, string?, string?, Dictionary{string, string}?)">constructor</see> will be used. 
+    /// </param>
+    /// <param name="data">
+    /// Notification data that will be merged with the template file text to generate the message.
     /// </param>
     /// <returns>
     /// A localized mail message template merged with the data in the specified or a fallback language.
     /// </returns>
+    /// <remarks>
+    /// After calling this method, use the 
+    /// <see cref="Subject"/> and <see cref="Body"/>
+    /// properties to get the email message subject and body.
+    /// The <see cref="Language"/> property will hold the language code of the loaded template
+    /// (which may be different from the requested language if the template in the requested language is not available).
+    /// </remarks>
     /// <example>
     /// Zodiac_en-us.html file:
     /// <code language="html">
@@ -285,7 +292,7 @@ public partial class MailTemplate
     ///     Year = 2025
     /// };
     /// 
-    /// template.Load("Zodiac", "Samples/Zodiac", "en-US", data, ".html");
+    /// template.Load("Samples/Zodiac", "Zodiac", "en-US", data, ".html");
     /// 
     /// // Subject will hold the merged value of the title element.
     /// string subject = template.Subject;
@@ -299,11 +306,11 @@ public partial class MailTemplate
     /// </example>
     public virtual void Load
     (
-        string templateId,
-        string templateFolderPath,
+        string folder,
+        string template,
         string language,
-        object? data,
-        string? templateFileExtension = null
+        string? extension = null,
+        object? data = null
     )
     {
         // If we have the language map,
@@ -316,14 +323,14 @@ public partial class MailTemplate
         List<string> languages = GetCompatibleLanguages(NormalizeLanguage(language));
 
         // Cache key for the preferred language.
-        string? originalKey = FormatKey(templateId, language);
+        string? originalKey = FormatKey(template, language);
 
         string key;
 
         foreach (string superLanguage in languages)
         {
             // Generate cache key for the template and language.
-            key = FormatKey(templateId, superLanguage);
+            key = FormatKey(template, superLanguage);
 
             // See if this language key is already mapped in cache.
             if (_cachedKeys.ContainsKey(key))
@@ -350,16 +357,16 @@ public partial class MailTemplate
             // Template file path is not in the cache...
             else
             {
-                string? extension = templateFileExtension ?? _defaultTemplateFileExtension;
+                string? fileExtension = extension ?? _defaultTemplateFileExtension;
 
-                extension ??= "";
+                fileExtension ??= "";
 
                 // Get file path for this language.
                 string path = FormatPath(
-                    templateFolderPath,
-                    templateId,
+                    folder,
+                    template,
                     superLanguage,
-                    extension);
+                    fileExtension);
 
                 if (File.Exists(path))
                 {
@@ -385,13 +392,13 @@ public partial class MailTemplate
         if (_path == null)
         {
             throw new Exception(
-                $"Cannot find an HTML mail template '{templateId}' for the '{language}' language code.");
+                $"Cannot find an HTML mail template '{template}' for the '{language}' language code.");
         }
 
         if (_key == null)
         {
             throw new Exception(
-                $"Cannot determine the key to identify the mail template '{templateId}' for the '{language}' language code.");
+                $"Cannot determine the key to identify the mail template '{template}' for the '{language}' language code.");
         }
 
         // Try getting template from cache.

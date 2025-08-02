@@ -68,7 +68,7 @@ public static class NameOf
     /// Object, class, type, or property.
     /// </param>
     /// <param name="camelCase">
-    /// Indicates whether to return the name in camelCase.
+    /// Indicates whether to return the name in <c>camelCase</c>.
     /// </param>
     /// <param name="name">
     /// Must be omitted.
@@ -226,7 +226,7 @@ public static class NameOf
     /// an empty string will be returned.
     /// </param>
     /// <param name="camelCase">
-    /// If true, parameter names will be converted to camelCase.
+    /// If true, parameter names will be converted to <c>camelCase</c>.
     /// </param>
     /// <param name="name">
     /// Must be omitted.
@@ -323,7 +323,7 @@ public static class NameOf
     /// an empty string will be returned.
     /// </param>
     /// <param name="camelCase">
-    /// If true, parameter names will be converted to camelCase.
+    /// If true, parameter names will be converted to <c>camelCase</c>.
     /// </param>
     /// <param name="name">
     /// Must be omitted.
@@ -405,10 +405,10 @@ public static class NameOf
     }
 
     /// <summary>
-    /// Removes special characters (?, !, @) from a compound object property name.
+    /// Removes special characters (<c>?</c>, <c>!</c>, <c>@</c>) from a compound object property name.
     /// </summary>
     /// <param name="name">
-    /// Compound property name, such as <c>myObject!.PropertyX!.Value</c>.
+    /// Compound property name, such as <c>myObject?.PropertyX!.Value</c>.
     /// </param>
     /// <param name="camelCase">
     /// If true, the normalized name will be converted to camelCase.
@@ -432,10 +432,10 @@ public static class NameOf
 
     #region Private methods
     /// <summary>
-    /// Removes 'nameof' from the name.
+    /// Removes <c>nameof</c> from the name.
     /// </summary>
     /// <param name="name">
-    /// Name that may the leading 'nameof' prefix.
+    /// Name that may the leading <c>nameof</c> prefix.
     /// </param>
     /// <returns>
     /// Normalized name.

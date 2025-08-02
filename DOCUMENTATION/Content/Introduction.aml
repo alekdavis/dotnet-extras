@@ -4,48 +4,67 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
-    <!--
     <summary>
-      <para>Optional summary abstract</para>
+      <para>A brief overview of the DotNetExtras libraries.</para>
     </summary>
-    -->
-
+  
     <introduction>
-      <!-- Uncomment this to generate an outline of the section and sub-section
-           titles.  Specify a numeric value as the inner text to limit it to
-           a specific number of sub-topics when creating the outline.  Specify
-           zero (0) to limit it to top-level sections only.  -->
       <!-- <autoOutline /> -->
 
-      <para>Required introduction</para>
+      <para>
+      DotNetExtras is a collection of .NET Core client libraries that implement
+      general-purpose and specialized functions that are frequently needed
+      but not available in the .NET Core framework or in other public libraries.
+      The libraries are oganized around tasks and can be included in .NET Core projects
+      as NuGet packages.
+      </para>
     </introduction>
 
     <!-- Add one or more top-level section elements.  These are collapsible.
          If using <autoOutline />, add an address attribute to identify it
          and specify a title so that it can be jumped to with a hyperlink. -->
-    <section address="Section1">
-      <title>Optional section title</title>
+    <section address="Common">
+      <title>DotNetExtras.Common library</title>
       <content>
-        <!-- Uncomment this to create a sub-section outline
-        <autoOutline /> -->
-        <para>Add one or more sections with content</para>
+        <!-- <autoOutline /> -->
+        <para>
+          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, string functions making it easier to generate tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc.
+        </para>
       </content>
-      <!-- If a section contains a sections element, its content creates
-           sub-sections.  These are not collapsible.
+
       <sections>
-          <section address="SubSection1">
-              <title>Sub-section 1</title>
+        <section address="CoomonDocs">
+          <title>Documentation</title>
+          <content>
+            <para><codeEntityReference>G:DotNetExtras.Common</codeEntityReference></para>
+          </content>
+        </section>
+        <section address="CommonNuget">
+            <title>Nuget package</title>
+            <content>
+                <para>Coming soon.</para>
+            </content>
+        </section>
+      </sections>
+    </section>
+    
+    <section address="Mail">
+      <title>DotNetExtras.Mail library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Provides functionality simplifying the use of localized email templates for sending email notifications.
+        </para>
+      </content>
+      <sections>
+          <section address="MailNuget">
+              <title>Nuget package</title>
               <content>
-                  <para>Sub-section content.</para>
+                  <para>Coming soon.</para>
               </content>
           </section>
-          <section address="SubSection2">
-              <title>Sub-section 2</title>
-              <content>
-                  <para>Sub-section content.</para>
-              </content>
-          </section>
-      </sections> -->
+      </sections>
+
     </section>
 
     <relatedTopics>

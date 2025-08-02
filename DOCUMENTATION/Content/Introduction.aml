@@ -4,10 +4,12 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
+    <!--
     <summary>
       <para>A brief overview of the DotNetExtras libraries.</para>
     </summary>
-  
+    -->
+    
     <introduction>
       <!-- <autoOutline /> -->
 
@@ -15,8 +17,8 @@
       DotNetExtras is a collection of .NET Core client libraries that implement
       general-purpose and specialized functions that are frequently needed
       but not available in the .NET Core framework or in other public libraries.
-      The libraries are oganized around tasks and can be included in .NET Core projects
-      as NuGet packages.
+      The libraries are oganized around tasks and grouped under the top-level namespaces.
+      Each library can be included in a project via a NuGet package.
       </para>
     </introduction>
 
@@ -28,24 +30,16 @@
       <content>
         <!-- <autoOutline /> -->
         <para>
-          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, string functions making it easier to generate tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc.
+          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, generation of tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc. This library is a dependency of other specialized DotNetExtras libraries.
         </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="Documentation">G:DotNetExtras.Common</codeEntityReference></para></listItem>
+          <listItem><para>Nuget package: coming soon</para></listItem>
+        </list>
       </content>
-
-      <sections>
-        <section address="CoomonDocs">
-          <title>Documentation</title>
-          <content>
-            <para><codeEntityReference>G:DotNetExtras.Common</codeEntityReference></para>
-          </content>
-        </section>
-        <section address="CommonNuget">
-            <title>Nuget package</title>
-            <content>
-                <para>Coming soon.</para>
-            </content>
-        </section>
-      </sections>
     </section>
     
     <section address="Mail">
@@ -53,18 +47,33 @@
       <content>
         <!-- <autoOutline /> -->
         <para>
-          Provides functionality simplifying the use of localized email templates for sending email notifications.
+          Loads localized email templates and merges them with data.
         </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="Documentation">N:DotNetExtras.Mail</codeEntityReference></para></listItem>
+          <listItem><para>Nuget package: coming soon</para></listItem>
+        </list>
       </content>
-      <sections>
-          <section address="MailNuget">
-              <title>Nuget package</title>
-              <content>
-                  <para>Coming soon.</para>
-              </content>
-          </section>
-      </sections>
-
+    </section>
+    
+    <section address="OData">
+      <title>DotNetExtras.OData library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Parses and validates OData search filters.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="Documentation">N:DotNetExtras.OData</codeEntityReference></para></listItem>
+          <listItem><para>Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
     </section>
 
     <relatedTopics>

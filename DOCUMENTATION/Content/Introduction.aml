@@ -17,8 +17,11 @@
       DotNetExtras is a collection of .NET Core client libraries that implement
       general-purpose and specialized functions that are frequently needed
       but not available in the .NET Core framework or in other public libraries.
+      While most of the DotNetExtras code was developed independently,
+      some of the functionality has been adapted or inspired by various opnline sources
+      (developer forums, blog posts, etc).
       The libraries are oganized around tasks and grouped under the top-level namespaces.
-      Each library can be included in a project via a NuGet package.
+      Each library can be included in a project via a NuGet package (coming soon).
       </para>
     </introduction>
 
@@ -30,14 +33,14 @@
       <content>
         <!-- <autoOutline /> -->
         <para>
-          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, generation of tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc. This library is a dependency of other specialized DotNetExtras libraries.
+          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, generation of tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc. This library is a dependency for other specialized DotNetExtras libraries.
         </para>
         <para>
           See also:      
         </para>
         <list class="bullet">
-          <listItem><para><codeEntityReference linkText="Documentation">G:DotNetExtras.Common</codeEntityReference></para></listItem>
-          <listItem><para>Nuget package: coming soon</para></listItem>
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Common documentation">G:DotNetExtras.Common</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Common Nuget package: coming soon</para></listItem>
         </list>
       </content>
     </section>
@@ -53,8 +56,8 @@
           See also:      
         </para>
         <list class="bullet">
-          <listItem><para><codeEntityReference linkText="Documentation">N:DotNetExtras.Mail</codeEntityReference></para></listItem>
-          <listItem><para>Nuget package: coming soon</para></listItem>
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Mail documentation">N:DotNetExtras.Mail</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Mail Nuget package: coming soon</para></listItem>
         </list>
       </content>
     </section>
@@ -70,8 +73,59 @@
           See also:      
         </para>
         <list class="bullet">
-          <listItem><para><codeEntityReference linkText="Documentation">N:DotNetExtras.OData</codeEntityReference></para></listItem>
-          <listItem><para>Nuget package: coming soon</para></listItem>
+          <listItem><para><codeEntityReference linkText="DotNetExtras.OData documentation">N:DotNetExtras.OData</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.OData Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Security">
+      <title>DotNetExtras.Security library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Simplifies security operations such as hashing, encryption, random password generation, etc.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Security documentation">G:DotNetExtras.Security</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Security Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Testing">
+      <title>DotNetExtras.Testing library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Can be used in unit tests for assertion operations and mocking configuration settings.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Testing documentation">G:DotNetExtras.Testing</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Testing Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Web">
+      <title>DotNetExtras.Web library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Implements REST API client operations such as automatic refresh of the access tokens, parsing of the common error structures implemented by different providers (Azure, Apigee, OAuth, SCIM, etc.). 
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Web.Client documentation">N:DotNetExtras.Web.Client</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Web Nuget package: coming soon</para></listItem>
         </list>
       </content>
     </section>

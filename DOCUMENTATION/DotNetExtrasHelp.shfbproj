@@ -36,6 +36,7 @@
       <DocumentationSource sourceFile="..\OData\OdataLib\ODataLib.csproj" />
       <DocumentationSource sourceFile="..\Security\SecurityLib\SecurityLib.csproj" />
       <DocumentationSource sourceFile="..\Testing\TestingLib\TestingLib.csproj" />
+      <DocumentationSource sourceFile="..\Web\WebClientLib\WebClientLib.csproj" />
     </DocumentationSources>
     <HelpFileFormat>Website</HelpFileFormat>
     <SyntaxFilters>C#</SyntaxFilters>
@@ -64,7 +65,7 @@
       <NamespaceSummaryItem name="DotNetExtras.Common.RegularExpressions" isDocumented="True">Defines regular expressions for common values, such as email addresses, GUIDs, names, and so on.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Common.Specialized" isDocumented="True">Provides more specific and less frequently used general-purpose utility classes that extend functionality of  various types.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Mail" isDocumented="True">Defines classes for building and using localized email templates.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="DotNetExtras.OData" isDocumented="True">Provides classes for parsing and validating OData expressions.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DotNetExtras.OData" isDocumented="True">Provides classes for parsing and validating OData filter expressions.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Security (Group)" isGroup="True" isDocumented="True">Contains utility classes and namespeces for security operations, such as password generation, encryption, hashing, and more.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Security" isDocumented="True">Implements security capabilities, such as encryption, hashing, random password generation, and so on.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Security.Json" isDocumented="True">Provides classes to simplify JSON operations on sensitive data, such as serialization of passwords and other secrets.</NamespaceSummaryItem>
@@ -75,6 +76,7 @@
       <NamespaceSummaryItem name="DotNetExtras.Common.Extensions (Group)" isGroup="True" isDocumented="True">Contains utility classes and namespaces implementing extension methods.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Common.Extensions" isDocumented="True">Implements most common extension methods.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="DotNetExtras.Common.Extensions.Specialized" isDocumented="True">Implements less common extension methods.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DotNetExtras.Web.Client" isDocumented="True">Provides classes to simplify Web client operations such as refreshing security token, handling common REST API error objects, etc.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <BinaryTOC>True</BinaryTOC>

@@ -17,8 +17,8 @@ namespace DotNetExtras.Common;
 /// <item><see cref="Assembly.GetAssembly"/> implementing the <see cref="PrimaryAssembly"/> class</item>
 /// </list>
 /// <para>
-/// Adapted from 
-/// <see href="https://www.c-sharpcorner.com/UploadFile/ravesoft/access-assemblyinfo-file-and-get-product-informations"/>.
+/// Adapted from the
+/// <see href="https://www.c-sharpcorner.com/UploadFile/ravesoft/access-assemblyinfo-file-and-get-product-informations">Access AssemblyInfo File and Get Product Informations</see> article by Ravee Rasaiyah.
 /// </para>
 /// </remarks>
 /// <example>

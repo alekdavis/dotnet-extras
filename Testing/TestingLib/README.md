@@ -1,0 +1,5 @@
+# DotNetExtras.Testing Library
+
+The `DotNetExtras.Testing` library implements common assertion methods based on the existing [xUnit](https://xunit.net/) assertions and custom code filling the gaps in the xUnit assertion library. The `DotNetExtras.Testing` library was created in response to the [FluentAssertions library changing the licensing terms](https://fluentassertions.com/releases/#800). For assertion checks, just add the `DotNetExtras.Testing.Assertions` namespace to your test class and use the `Must()` extension method with the appropriate assertions on any variable or property.
+
+For details, check the topics under the `DotNetExtras.Testing` namespace section in the [API documentation](https://alekdavis.github.io/dotnet-extras). For additional usage examples, see the [unit tests project](../TestingLibTests).

@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>DotNetExtras.Web.Client</AssemblyName>
+    <RootNamespace>DotNetExtras.Web.Client</RootNamespace>
+    <Version>0.0.0</Version>
+    <Title>$(AssemblyName)</Title>
+    <Authors>Alek Davis</Authors>
+    <Description>A .NET Core library implementing utility functions that can simplify web API calls.</Description>
+    <Copyright>© 2025 Alek Davis</Copyright>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageProjectUrl>https://alekdavis.github.io/dotnet-extras</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/alekdavis/dotnet-extras</RepositoryUrl>
+    <PackageTags>.net;utilities;helpers;library;web;http;rest;scim;oauth;client;</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSourceRevisionInInformationalVersion>False</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\Server\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="1.3.0" />
+    <PackageReference Include="Cuemon.AspNetCore.Mvc" Version="9.0.8" />
+    <PackageReference Include="Flurl" Version="4.0.0" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonLib\CommonLib.csproj" />
+  </ItemGroup>
+
+</Project>

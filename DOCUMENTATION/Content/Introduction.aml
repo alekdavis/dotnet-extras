@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="95884982-ff04-4b6e-9214-7622491f4679" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>A brief overview of the DotNetExtras libraries.</para>
+    </summary>
+    -->
+    
+    <introduction>
+      <!-- <autoOutline /> -->
+
+      <para>
+      DotNetExtras is a collection of .NET Core client libraries that implement
+      general-purpose and specialized functions that are frequently needed
+      but not available in the .NET Core framework or in other public libraries.
+      While most of the DotNetExtras code was developed independently,
+      some of the functionality has been adapted or inspired by various online sources
+      (developer forums, blog posts, etc).
+      The libraries are oganized around tasks and grouped under the top-level namespaces.
+      Each library can be included in a project via a NuGet package (coming soon).
+      </para>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="Common">
+      <title>DotNetExtras.Common library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Implements general-purpose classes for common tasks such as retrieving error information from the immediate and inner exceptions, simple JSON serialization and deserialization, generation of tokenized strings from collections, deep object cloning and comparison, setting object properties and getting property values using compound (nested) property names, etc. This library is a dependency for other specialized DotNetExtras libraries.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Common documentation">G:DotNetExtras.Common</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Common Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Configuration">
+      <title>DotNetExtras.Configuration library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Simplifies retrieval and conversion of application settings.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Configuration documentation">N:DotNetExtras.Configuration</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Configuration Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Mail">
+      <title>DotNetExtras.Mail library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Loads localized email templates and merges them with data.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Mail documentation">N:DotNetExtras.Mail</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Mail Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="OData">
+      <title>DotNetExtras.OData library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Parses and validates OData search filters.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.OData documentation">N:DotNetExtras.OData</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.OData Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Retry">
+      <title>DotNetExtras.Retry library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Implements simple methods allowing callers to retry operations under various conditions.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Retry documentation">N:DotNetExtras.Retry</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Retry Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Security">
+      <title>DotNetExtras.Security library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Simplifies security operations such as hashing, encryption, random password generation, etc.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Security documentation">G:DotNetExtras.Security</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Security Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Testing">
+      <title>DotNetExtras.Testing library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Can be used in unit tests for assertion operations.
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Testing documentation">N:DotNetExtras.Testing.Assertions</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Testing Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+    
+    <section address="Web">
+      <title>DotNetExtras.Web library</title>
+      <content>
+        <!-- <autoOutline /> -->
+        <para>
+          Implements REST API client operations such as automatic refresh of the access tokens, parsing of the common error structures implemented by different providers (Azure, Apigee, OAuth, SCIM, etc.). 
+        </para>
+        <para>
+          See also:      
+        </para>
+        <list class="bullet">
+          <listItem><para><codeEntityReference linkText="DotNetExtras.Web documentation">N:DotNetExtras.Web.Client</codeEntityReference></para></listItem>
+          <listItem><para>DotNetExtras.Web Nuget package: coming soon</para></listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

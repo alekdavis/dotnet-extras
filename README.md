@@ -4,7 +4,7 @@
 
 ## DotNetExtras.Common
 
-Implements general-purpose capabilities including enhanced `nameof` operator, easy retrieval and formatting of exception information, JSON operations, converting collections to comma-separated strings, deep object cloning and comparison, and a lot more.
+Implements most frequently used general-purpose capabilities including enhanced `nameof` operator, easy retrieval and formatting of exception information, JSON operations, converting collections to comma-separated strings, comparison, and more.
 
 - [Repo](https://github.com/alekdavis/dotnet-extras-common)
 - [Documentation](https://alekdavis.github.io/dotnet-extras-common)
@@ -17,6 +17,14 @@ Offers an easy way to read and transform application settings.
 - [Repo](https://github.com/alekdavis/dotnet-extras-configuration)
 - [Documentation](https://alekdavis.github.io/dotnet-extras-configuration)
 - [Nuget](https://www.nuget.org/packages/DotNetExtras.Configuration)
+
+## DotNetExtras.Extended
+
+Implements less frequently used general-purpose capabilities including deep object cloning and various type conversions.
+
+- [Repo](https://github.com/alekdavis/dotnet-extras-extended)
+- [Documentation](https://alekdavis.github.io/dotnet-extras-extended)
+- [Nuget](https://www.nuget.org/packages/DotNetExtras.Extended)
 
 ## DotNetExtras.Mail
 
